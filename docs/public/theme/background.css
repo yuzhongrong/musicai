@@ -1,0 +1,83 @@
+/* docs/public/theme/background.css */
+
+/* 确保 html 不遮挡背景 */
+html {
+  background: transparent !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 设置 body 样式 */
+body {
+  position: relative; /* 确保伪元素相对于 body 定位 */
+  min-height: 100vh !important;
+
+  margin: 0;
+  padding: 0;
+  background: transparent !important; /* 确保 body 背景透明 */
+}
+
+/* 使用伪元素设置背景图并调整透明度 */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/img/background.png') no-repeat center/cover !important; /* 设置背景图 */
+  opacity: 0.1; /* 透明度 50% */
+  z-index: -1; /* 确保背景图在内容下方 */
+}
+
+/* 确保 VPHome 不遮挡背景 */
+.VPHome {
+  background: transparent !important;
+}
+
+/* 确保 .home 不遮挡背景 */
+.home {
+  background: transparent !important;
+  min-height: 100vh;
+}
+
+/* 调整 hero 部分的文字颜色 */
+.hero .name,
+.hero .tagline,
+.hero .action {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* 为 hero 部分添加半透明遮罩层 */
+.hero {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* 调整 features 部分的背景 */
+.features {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  body::before {
+    background-size: contain !important;
+  }
+}
