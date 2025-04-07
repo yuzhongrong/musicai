@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <img src="/img/wechat_channel.jpg" />
-  </div>
+  <!-- <div class="container">
+    <img src="/img/home_logo.jpg" />
+  </div> -->
 </template>
 
 <script setup>

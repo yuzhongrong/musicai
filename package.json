@@ -1,7 +1,7 @@
 {
-  "name": "musicfree.catcat.work",
+  "name": "musicai",
   "version": "1.0.0",
-  "description": "MusicFree 站点",
+  "description": "MusicAI站点",
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev docs",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maotoumao/musicfree.catcat.work.git"
+    "url": "git+https://github.com/fish-job/musicai.git"
   },
-  "author": "猫头猫",
+  "author": "MusicAI",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maotoumao/musicfree.catcat.work/issues"
+    "url": "https://github.com/fish-job/musicai/issues"
   },
-  "homepage": "https://github.com/maotoumao/musicfree.catcat.work#readme",
+  "homepage": "https://github.com/fish-job/musicai#readme",
   "devDependencies": {
     "vitepress": "^1.0.0-rc.24",
     "vue": "^3.3.7"

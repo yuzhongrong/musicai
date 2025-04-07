@@ -6,9 +6,9 @@ outline: deep
 
 ## 概述
 
-基本媒体类型是 MusicFree 内部存储歌曲、作者、专辑、歌单、歌词等的基本数据结构。
+基本媒体类型是 MusicAI 内部存储歌曲、作者、专辑、歌单、歌词等的基本数据结构。
 
-在插件中，通常需要将扩展源的数据转化为 MusicFree 可以识别的媒体数据结构，或者根据 MusicFree 定义的媒体类型数据结构获取一些其他的信息。
+在插件中，通常需要将扩展源的数据转化为 MusicAI 可以识别的媒体数据结构，或者根据 MusicAI 定义的媒体类型数据结构获取一些其他的信息。
 
 例如：
 
@@ -26,11 +26,11 @@ type searchMusic = (keyword: string, page: number) => Promise<MusicItem[]>;
 type getMediaSource = (musicItem: MusicItem) => Promise<string>;
 ```
 
-以上是为了让你对【基本媒体类型】的作用有个大概的印象，接下来介绍 MusicFree 定义的基本媒体类型。
+以上是为了让你对【基本媒体类型】的作用有个大概的印象，接下来介绍 MusicAI 定义的基本媒体类型。
 
 ## 基础类型：IMediaBase
 
-MusicFree 定义的所有媒体类型都继承自 IMediaBase。其签名如下：
+MusicAI 定义的所有媒体类型都继承自 IMediaBase。其签名如下：
 
 ```typescript
 interface IMediaBase {
@@ -47,7 +47,7 @@ interface IMediaBase {
 
 ## 音乐类型：IMusicItem
 
-MusicFree 定义的音乐类型，其签名如下：
+MusicAI 定义的音乐类型，其签名如下：
 
 ```typescript
 interface IMusicItem extends IMediaBase {
@@ -76,11 +76,11 @@ interface IMusicItem extends IMediaBase {
 }
 ```
 
-MusicFree 协议中所有涉及到【歌曲】的概念，都应该符合 `IMusicItem` 数据结构。
+MusicAI 协议中所有涉及到【歌曲】的概念，都应该符合 `IMusicItem` 数据结构。
 
 ## 作者类型：IArtistItem
 
-MusicFree 定义的作者类型，其签名如下：
+MusicAI 定义的作者类型，其签名如下：
 
 ```typescript
 interface IArtistItem extends IMediaBase {
@@ -103,11 +103,11 @@ interface IArtistItem extends IMediaBase {
 }
 ```
 
-MusicFree 协议中所有涉及到【作者】的概念，都应该符合 `IArtistItem` 数据结构。
+MusicAI 协议中所有涉及到【作者】的概念，都应该符合 `IArtistItem` 数据结构。
 
 ## 专辑类型：IAlbumItem
 
-MusicFree 定义的专辑类型，其签名如下：
+MusicAI 定义的专辑类型，其签名如下：
 
 ```typescript
 interface IAlbumItem extends IMediaBase {
@@ -134,11 +134,11 @@ interface IAlbumItem extends IMediaBase {
 }
 ```
 
-MusicFree 协议中所有涉及到【专辑】的概念，都应该符合 `IAlbumItem` 数据结构。
+MusicAI 协议中所有涉及到【专辑】的概念，都应该符合 `IAlbumItem` 数据结构。
 
 ## 歌单类型：IMusicSheetItem
 
-MusicFree 定义的歌单类型。歌单类型的数据结构其实和 `IAlbumItem` 完全一致，只不过里面有些字段的含义不同，比如 `artist` 在专辑中代表专辑作者，但在歌单中代表创建歌单的用户。`IMusicSheetItem` 签名如下：
+MusicAI 定义的歌单类型。歌单类型的数据结构其实和 `IAlbumItem` 完全一致，只不过里面有些字段的含义不同，比如 `artist` 在专辑中代表专辑作者，但在歌单中代表创建歌单的用户。`IMusicSheetItem` 签名如下：
 
 ```typescript
 interface IMusicSheetItem extends IMediaBase {
@@ -167,4 +167,4 @@ interface IMusicSheetItem extends IMediaBase {
 }
 ```
 
-MusicFree 协议中所有涉及到【歌曲】的概念，都应该符合 `IMusicItem` 数据结构。
+MusicAI 协议中所有涉及到【歌曲】的概念，都应该符合 `IMusicItem` 数据结构。

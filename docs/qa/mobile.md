@@ -6,7 +6,7 @@ outline: deep
 
 ## 文件的下载路径在哪里
 
-默认路径：`Android/data/fun.upup.musicfree/files/download/music`，可以在侧边栏修改。
+默认路径：`Android/data/fun.upup.musicfree.ai/files/download/music`，可以在侧边栏修改。
 
 ## 无法后台播放 / 播放一首就暂停
 

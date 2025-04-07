@@ -1,8 +1,8 @@
 ---
 outline: deep
 
-prev: '安卓版-如何安装应用'
-next: '桌面版-如何安装应用'
+prev: "安卓版-如何安装应用"
+next: "桌面版-如何安装应用"
 ---
 
 # 如何安装插件
@@ -23,16 +23,16 @@ next: '桌面版-如何安装应用'
 
 5. 输入插件 URL 即可（插件链接以 .json 或 .js 结尾）
 
-::: info 💡示例插件
+::: info 💡 示例插件
 如果要使用示例插件，输入下面链接：
-https://gitee.com/maotoumao/MusicFreePlugins/raw/master/plugins.json
+https://gitee.com/fish-job/MusicFreePlugins/raw/master/plugins.json
 
 :::
 
 ## 通过本地文件安装
 
 1. 点击左上角按钮
- 
+
 2. 点击【插件设置】
 
 3. 点击右下角加号
@@ -40,7 +40,6 @@ https://gitee.com/maotoumao/MusicFreePlugins/raw/master/plugins.json
 4. 点击【从本地安装插件】
 
 5. 在选择本地的插件即可（本地的插件是一个 json 或 js 文件）
-
 
 ## 订阅
 

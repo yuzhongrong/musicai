@@ -62,7 +62,7 @@ outline: deep
 ```javascript
 module.exports = {
   /** 用来说明插件信息的属性 */
-  platform: "MusicFree 插件", // 插件名
+  platform: "MusicAI 插件", // 插件名
   version: "0.0.0", // 插件版本号
 
   /** 供给软件在合适的时机调用的函数 */
@@ -83,7 +83,7 @@ module.exports = {
 
 以手机版为例，程序中存储插件的路径是 `Android/data/{包名}/files/plugins`。
 
-MusicFree 的包名是 `fun.upup.musicfree`，所以你可以尝试打开一下手机文件管理的 `Android/data/fun.upup.musicfree/files/plugins` 路径，你会发现一系列 `xxx.js` 文件。
+MusicAI 的包名是 `fun.upup.musicfree.ai`，所以你可以尝试打开一下手机文件管理的 `Android/data/fun.upup.musicfree.ai/files/plugins` 路径，你会发现一系列 `xxx.js` 文件。
 
 <div class="img-container"><img src="/img/plugin-list.jpg" /></div>
 
@@ -91,13 +91,12 @@ MusicFree 的包名是 `fun.upup.musicfree`，所以你可以尝试打开一下�
 
 <div class="img-container"><img src="/img/plugin-content.jpg" /></div>
 
-
 可以看到 `module.exports` 有一些字段，这些其实都和程序中一一对应，比如 `platform` 代表这个插件的名字，`version` 代表这个插件的版本号，以及如果有 `srcUrl` 字段的话，那么这就是用于插件更新的远程地址。
 
-插件的加载逻辑做的比较重，因此对于基于 MusicFree 开发的软件，如果不做大的改动，插件大概率也会以**本地文件**的形式存储在 `Android/data/{包名}/files/plugins` 路径下，并且也可以被 MusicFree 加载。
+插件的加载逻辑做的比较重，因此对于基于 MusicAI 开发的软件，如果不做大的改动，插件大概率也会以**本地文件**的形式存储在 `Android/data/{包名}/files/plugins` 路径下，并且也可以被 MusicAI 加载。
 
 :::tip 总结
-已安装的插件实际上是被拷贝到了固定路径，安卓是 `Android/data/fun.upup.musicfree/files/plugins`；桌面端是 `C://Users/{userName}/AppData/Roaming/MusicFree/musicfree-plugins`。每次启动应用时，都会从对应路径下扫描并加载插件。
+已安装的插件实际上是被拷贝到了固定路径，安卓是 `Android/data/fun.upup.musicfree.ai/files/plugins`；桌面端是 `C://Users/{userName}/AppData/Roaming/MusicAI/musicfree-plugins`。每次启动应用时，都会从对应路径下扫描并加载插件。
 :::
 
 #### 插件安装的原理
@@ -109,7 +108,6 @@ MusicFree 的包名是 `fun.upup.musicfree`，所以你可以尝试打开一下�
 版本号是类似于 `1.2.3` 的形式，比较的时候从后往前比，比如 `1.2.4 > 1.2.3`，`2.0.0 > 1.99.99`。**因此，如果要安装旧版本的插件，需要先卸载本地的更新版本的插件，然后再安装旧版。**
 
 如果以上验证通过，那么接下来就开始安装插件了。安装的过程就是往存储插件的路径里写入一个 `js` 文件，为了避免冲突，这个文件的名字会**随机生成**。
-
 
 ## 生命周期
 
@@ -133,9 +131,9 @@ MusicFree 的包名是 `fun.upup.musicfree`，所以你可以尝试打开一下�
 
 ## 如何开发插件
 
-对于开发方式没有限制，你只需要保证最终生成一个 `导出 MusicFree 协议` 的 `Common.js` 模块即可。
+对于开发方式没有限制，你只需要保证最终生成一个 `导出 MusicAI 协议` 的 `Common.js` 模块即可。
 
-方便起见，你可以按照 [此模板](https://github.com/maotoumao/MusicFreePluginTemplate) 完善插件。开发完成后，执行：
+方便起见，你可以按照 [此模板](https://github.com/fish-job/MusicFreePluginTemplate) 完善插件。开发完成后，执行：
 
 ```bash
 npm run build
@@ -143,22 +141,19 @@ npm run build
 
 安装 `dist/plugin.js` 即可。
 
-除了使用模板外，你也可以基于 [示例插件](https://github.com/maotoumao/MusicFreePlugins) 修改。示例插件仓库最终的可安装文件在 `dist` 文件夹下。
-
+除了使用模板外，你也可以基于 [示例插件](https://github.com/fish-job/MusicFreePlugins) 修改。示例插件仓库最终的可安装文件在 `dist` 文件夹下。
 
 ## 如何调试插件
 
 前面说过，插件本质上是一个导出特定数据结构的 `Common JS 模块`。如果需要调试插件，你只需要在 node.js 环境下调用对应的函数，判断函数的返回值是否符合预期即可。
 
 ::: warning
-如果使用到 `@react-native-cookies/cookies`，无法直接在 node.js 环境下调试，因为这个包有一些原生依赖。如果需要调试，需要启动 MusicFree 项目，并在软件内调试。
+如果使用到 `@react-native-cookies/cookies`，无法直接在 node.js 环境下调试，因为这个包有一些原生依赖。如果需要调试，需要启动 MusicAI 项目，并在软件内调试。
 :::
 
 ::: danger
 同样需要注意，插件内可以引入第三方库 (比如你想在插件中使用 lodash 等)，但插件内只能引入 <span style="color: var(--vp-c-danger-1)">纯 Javascript 库</span>，如果第三方库存在一些原生依赖，则无法使用。
 :::
-
-
 
 ---
 
