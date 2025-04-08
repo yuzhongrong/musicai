@@ -14,7 +14,7 @@ hero:
       # link: https://r0rvr854dd1.feishu.cn/drive/folder/IrVEfD67KlWZGkdqwjecLHFNnBb
     - theme: brand
       text: 安卓版下载
-      link: https://ee5mtwfip4uwjf8l.public.blob.vercel-storage.com/app-arm64-v8a-release%20%281%29-rIRtylUT1t2Rw0nJ3PxytPZLnd2u5h.apk
+      link: https://ee5mtwfip4uwjf8l.public.blob.vercel-storage.com/app-arm64-v8a-release-BkbozMmCgY7Uj9j5gRlgIn2Tb2foxx.apk
     # - theme: alt
     #   text: PC 版源代码
     #   link: https://github.com/fish-job/MusicFreeDesktop
